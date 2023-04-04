@@ -48,7 +48,6 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 
 .timer {
@@ -80,4 +79,39 @@ button {
 .value {
   font-size: 20px;
   font-weight: 700;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.form-wrapper {
+  margin-right: 20px;
+}
+
+.form-input {
+  border: 4px solid green;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: 24px;
+  color: green;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-label-text {
+  font-size: 24px;
+  color: green;
+  margin-bottom: 30px;
+}
+
+.form-btn {
+  display: flex;
+  align-self: end;
+  justify-content: end;
 }
