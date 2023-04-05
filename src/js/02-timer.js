@@ -17,8 +17,8 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose(selectedDates) {
-    if (selectedDates[0] <= Date.now()) {
+  onClose([selectedDates]) {
+    if (selectedDates <= Date.now()) {
       Notiflix.Notify.failure('Please choose a date in the future');
       startBtn.disabled = true;
     }
@@ -36,16 +36,21 @@ function onStartTimer() {
   intervalId = setInterval(() => {
     const selectDate = picker.selectedDates[0];
     const startCount = selectDate - Date.now();
-    const { days, hours, minutes, seconds } = convertMs(startCount);
-    countDays.textContent = addLeadingZero(days);
-    countHours.textContent = addLeadingZero(hours);
-    countMin.textContent = addLeadingZero(minutes);
-    countSec.textContent = addLeadingZero(seconds);
+    const timeValue = convertMs(startCount);
+    
+    onUpdateTimer(timeValue);
 
     if (startCount < 1000) {
       clearInterval(intervalId);
     }
   }, 1000);
+}
+
+function onUpdateTimer({ days, hours, minutes, seconds }) {
+  countDays.textContent = addLeadingZero(days);
+  countHours.textContent = addLeadingZero(hours);
+  countMin.textContent = addLeadingZero(minutes);
+  countSec.textContent = addLeadingZero(seconds);
 }
 
 function addLeadingZero(value) {

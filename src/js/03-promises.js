@@ -1,12 +1,3 @@
-// function createPromise(position, delay) {
-//   const shouldResolve = Math.random() > 0.3;
-//   if (shouldResolve) {
-//     // Fulfill
-//   } else {
-//     // Reject
-//   }
-// }
-
 import Notiflix from 'notiflix';
 
 const formEl = document.querySelector('.form');
@@ -16,14 +7,9 @@ formEl.addEventListener('submit', onSubmiteClick);
 function onSubmiteClick(event) {
   event.preventDefault();
   const { delay, step, amount } = event.target;
-  console.log(event.target);
-  console.log(event.target.delay.value);
   let firstDelay = Number(delay.value);
-  console.log(firstDelay);
   const delayStep = Number(step.value);
-  console.log(delayStep);
   const amountValue = Number(amount.value);
-  console.log(amountValue);
   makePromises(firstDelay, delayStep, amountValue);
   event.target.reset();
 }
